@@ -9,6 +9,14 @@ services:
       - ./prometheus:/etc/prometheus
     command: --config.file=/etc/prometheus/config.yml
 
+  grafana:
+    hostname: random-grafana
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana:/etc/grafana/provisioning
+
   api:
     hostname: random-api
     build:
